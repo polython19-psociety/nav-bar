@@ -53,16 +53,16 @@ class NavBar extends LitElement {
   render() {
     return html `
     <app-drawer-layout>
-
         <app-drawer swipe-open slot="drawer">
             <app-header-layout has-scrolling-region>
                 <app-toolbar class="navToolbar">Menu</app-toolbar>
 
                 ${this.menuItems.map(i => {
                     return html`
-                        <paper-icon-item class="iconItem">
+                        <paper-icon-item class="iconItem" @click="${handleClick}">
                             <iron-icon class="grayIcon" icon=${i.icon} slot="item-icon"></iron-icon>
                             <span>${i.name}</span>
+
                         </paper-icon-item>                    
                     `;
                 })}
@@ -85,6 +85,9 @@ class NavBar extends LitElement {
 
     <app-drawer-layout>
       `;
+  }
+  handleClick(event){
+    this.dispatchEvent(new CustomEvent("itemclicked", {detail:event, bubbles:true, composed:true} ))
   }
 }
 
