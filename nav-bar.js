@@ -59,7 +59,7 @@ class NavBar extends LitElement {
 
                 ${this.menuItems.map(i => {
                     return html`
-                        <paper-icon-item class="iconItem" @click="${handleClick}">
+                        <paper-icon-item class="iconItem" @click="${this.handleClick}">
                             <iron-icon class="grayIcon" icon=${i.icon} slot="item-icon"></iron-icon>
                             <span>${i.name}</span>
 
